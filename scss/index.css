@@ -1,3 +1,7 @@
+.breadcrumb a, .navbar a, .topbar a {
+  transition: background 0.2s, color 0.2s;
+}
+
 :root {
   --saffron: #E8651A;
   --saffron-dark: #C4510F;
@@ -50,20 +54,21 @@ button {
 }
 
 .topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  flex-wrap: wrap;
   background: var(--navy);
   color: #cfd8f0;
   font-size: 12px;
   padding: 6px 24px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 6px;
 }
+
 .topbar a {
   color: #cfd8f0;
-  transition: color 0.2s;
 }
+
 .topbar a:hover {
   color: #fff;
 }
@@ -76,11 +81,11 @@ button {
 }
 
 .header {
-  background: var(--saffron);
-  padding: 12px 24px;
   display: flex;
   align-items: center;
   gap: 16px;
+  background: var(--saffron);
+  padding: 12px 24px;
   position: sticky;
   top: 0;
   z-index: 200;
@@ -108,8 +113,9 @@ button {
 }
 
 .search-wrap {
-  flex: 1;
   display: flex;
+  align-items: center;
+  flex: 1;
   max-width: 580px;
 }
 .search-wrap input {
@@ -119,19 +125,20 @@ button {
   border-radius: var(--radius) 0 0 var(--radius);
   font-size: 14px;
   outline: none;
-  font-family: "DM Sans", sans-serif;
+  font-family: inherit;
 }
 
 .search-btn {
   background: var(--navy);
   color: #fff;
   border: none;
-  padding: 10px 18px;
   border-radius: 0 var(--radius) var(--radius) 0;
   cursor: pointer;
-  font-size: 18px;
   transition: background 0.2s;
+  padding: 10px 18px;
+  font-size: 18px;
 }
+
 .search-btn:hover {
   background: #111e38;
 }
@@ -172,8 +179,9 @@ button {
 }
 
 .navbar {
-  background: var(--navy);
   display: flex;
+  align-items: center;
+  background: var(--navy);
   align-items: center;
   padding: 0 24px;
   overflow-x: auto;
@@ -187,7 +195,6 @@ button {
   padding: 12px 14px;
   white-space: nowrap;
   display: block;
-  transition: background 0.2s, color 0.2s;
   font-weight: 500;
 }
 .navbar a:hover, .navbar a.active {
@@ -351,6 +358,7 @@ button {
 
 .hero-btns {
   display: flex;
+  align-items: center;
   gap: 14px;
   flex-wrap: wrap;
 }
@@ -358,12 +366,13 @@ button {
 .btn-primary {
   background: var(--saffron);
   color: #fff;
-  padding: 12px 28px;
+  border: none;
   border-radius: var(--radius);
+  cursor: pointer;
+  transition: background 0.2s;
+  padding: 12px 28px;
   font-weight: 600;
   font-size: 14px;
-  border: none;
-  cursor: pointer;
   transition: background 0.2s, transform 0.15s;
 }
 .btn-primary:hover {

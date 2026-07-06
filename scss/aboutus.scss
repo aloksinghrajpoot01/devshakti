@@ -11,6 +11,44 @@ $border: #E5DDD5;
 $white: #fff;
 $radius: 8px;
 
+%heading-base {
+  font-family: 'Playfair Display', serif;
+  line-height: 1.15;
+}
+
+%card-base {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+%interactive-link {
+  color: var(--white);
+  transition: background 0.2s;
+
+  &:hover,
+  &.active {
+    background: rgba(255, 255, 255, 0.18);
+  }
+}
+
+@mixin flex-layout($justify: null, $align: center, $gap: null, $wrap: false) {
+  display: flex;
+  align-items: $align;
+
+  @if $justify != null {
+    justify-content: $justify;
+  }
+
+  @if $gap != null {
+    gap: $gap;
+  }
+
+  @if $wrap {
+    flex-wrap: wrap;
+  }
+}
+
 :root {
   --saffron: #{$saffron};
   --saffron-dark: #{$saffron-dark};
@@ -45,24 +83,18 @@ a {
 }
 
 .topbar {
+  @include flex-layout(space-between, center, 12px, true);
   background: var(--navy);
   color: #cfd8f0;
   font-size: 12px;
   padding: 7px 24px;
-  display: flex;
-  justify-content: space-between;
-  gap: 12px;
-  flex-wrap: wrap;
 }
 
 .header {
+  @include flex-layout(space-between, center, 18px);
   background: var(--saffron);
   color: var(--white);
   padding: 15px 24px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 18px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
 }
 
@@ -81,10 +113,7 @@ a {
 }
 
 .nav {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  flex-wrap: wrap;
+  @include flex-layout(null, center, 8px, true);
 
   a {
     color: var(--white);
@@ -129,8 +158,7 @@ a {
 
 h1,
 h2 {
-  font-family: 'Playfair Display', serif;
-  line-height: 1.15;
+  @extend %heading-base;
 }
 
 h1 {
@@ -170,10 +198,8 @@ h1 {
 }
 
 .highlight-box {
-  background: var(--white);
-  border: 1px solid var(--border);
+  @extend %card-base;
   border-left: 5px solid var(--saffron);
-  border-radius: var(--radius);
   padding: 24px;
   box-shadow: 0 12px 30px rgba(26, 35, 64, 0.08);
 
@@ -197,9 +223,7 @@ h1 {
 }
 
 .point {
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
+  @extend %card-base;
   padding: 24px;
   min-height: 190px;
   box-shadow: 0 10px 24px rgba(26, 35, 64, 0.06);
