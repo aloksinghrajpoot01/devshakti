@@ -1,69 +1,24 @@
-$saffron: #E8651A;
-$saffron-dark: #C4510F;
-$saffron-light: #FDF0E8;
-$navy: #1A2340;
-$navy-mid: #2C3A5C;
-$gold: #D4A017;
-$cream: #FAF6F0;
-$text: #1C1C1C;
-$text-mid: #555;
-$border: #E5DDD5;
-$white: #fff;
-$radius: 8px;
+// ─── Variables ────────────────────────────────────────────────────────────────
+$font-body:  'DM Sans', sans-serif;
+$font-serif: 'Playfair Display', serif;
 
-%heading-base {
-  font-family: 'Playfair Display', serif;
-  line-height: 1.15;
-}
-
-%card-base {
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-}
-
-%interactive-link {
-  color: var(--white);
-  transition: background 0.2s;
-
-  &:hover,
-  &.active {
-    background: rgba(255, 255, 255, 0.18);
-  }
-}
-
-@mixin flex-layout($justify: null, $align: center, $gap: null, $wrap: false) {
-  display: flex;
-  align-items: $align;
-
-  @if $justify != null {
-    justify-content: $justify;
-  }
-
-  @if $gap != null {
-    gap: $gap;
-  }
-
-  @if $wrap {
-    flex-wrap: wrap;
-  }
-}
-
+// ─── Custom Properties ────────────────────────────────────────────────────────
 :root {
-  --saffron: #{$saffron};
-  --saffron-dark: #{$saffron-dark};
-  --saffron-light: #{$saffron-light};
-  --navy: #{$navy};
-  --navy-mid: #{$navy-mid};
-  --gold: #{$gold};
-  --cream: #{$cream};
-  --text: #{$text};
-  --text-mid: #{$text-mid};
-  --border: #{$border};
-  --white: #{$white};
-  --radius: #{$radius};
+  --saffron:       #E8651A;
+  --saffron-dark:  #C4510F;
+  --saffron-light: #FDF0E8;
+  --navy:          #1A2340;
+  --navy-mid:      #2C3A5C;
+  --gold:          #D4A017;
+  --cream:         #FAF6F0;
+  --text:          #1C1C1C;
+  --text-mid:      #555;
+  --border:        #E5DDD5;
+  --white:         #fff;
+  --radius:        8px;
 }
 
+// ─── Reset & Base ─────────────────────────────────────────────────────────────
 * {
   margin: 0;
   padding: 0;
@@ -71,35 +26,40 @@ $radius: 8px;
 }
 
 body {
-  font-family: 'DM Sans', sans-serif;
+  font-family: $font-body;
   color: var(--text);
   background: var(--cream);
   line-height: 1.6;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
-}
+a { color: inherit; text-decoration: none; }
 
+// ─── Topbar ───────────────────────────────────────────────────────────────────
 .topbar {
-  @include flex-layout(space-between, center, 12px, true);
   background: var(--navy);
   color: #cfd8f0;
   font-size: 12px;
   padding: 7px 24px;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
 }
 
+// ─── Header ───────────────────────────────────────────────────────────────────
 .header {
-  @include flex-layout(space-between, center, 18px);
   background: var(--saffron);
   color: var(--white);
   padding: 15px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 18px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
 }
 
 .logo-text {
-  font-family: 'Playfair Display', serif;
+  font-family: $font-serif;
   font-size: 24px;
   font-weight: 700;
   line-height: 1.1;
@@ -112,8 +72,12 @@ a {
   color: rgba(255, 255, 255, 0.82);
 }
 
+// ─── Nav ──────────────────────────────────────────────────────────────────────
 .nav {
-  @include flex-layout(null, center, 8px, true);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
 
   a {
     color: var(--white);
@@ -121,24 +85,29 @@ a {
     font-weight: 600;
     padding: 8px 11px;
     border-radius: var(--radius);
-    transition: background 0.2s;
-  }
+    transition: background .2s;
 
-  a:hover,
-  a.active {
-    background: rgba(255, 255, 255, 0.18);
+    &:hover,
+    &.active { background: rgba(255, 255, 255, 0.18); }
   }
 }
 
+// ─── Hero ─────────────────────────────────────────────────────────────────────
 .hero {
   background:
     linear-gradient(120deg, rgba(26, 35, 64, 0.9), rgba(196, 81, 15, 0.72)),
-    url('../assets/images/about-hero.jpg') center/cover;
+    url("../assets/images/about-hero.jpg") center/cover;
   color: var(--white);
   min-height: 340px;
   display: grid;
   align-items: center;
   padding: 64px 24px;
+
+  p {
+    max-width: 660px;
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.9);
+  }
 }
 
 .hero-inner,
@@ -147,6 +116,7 @@ a {
   margin: 0 auto;
 }
 
+// ─── Typography ───────────────────────────────────────────────────────────────
 .eyebrow {
   color: #FFD166;
   font-size: 13px;
@@ -158,7 +128,8 @@ a {
 
 h1,
 h2 {
-  @extend %heading-base;
+  font-family: $font-serif;
+  line-height: 1.15;
 }
 
 h1 {
@@ -167,22 +138,17 @@ h1 {
   margin-bottom: 16px;
 }
 
-.hero p {
-  max-width: 660px;
-  font-size: 18px;
-  color: rgba(255, 255, 255, 0.9);
-}
-
-.content {
-  padding: 56px 24px 70px;
-}
+// ─── Content ──────────────────────────────────────────────────────────────────
+.content { padding: 56px 24px 70px; }
 
 .intro {
   display: grid;
-  grid-template-columns: 1.05fr 0.95fr;
+  grid-template-columns: 1.05fr .95fr;
   gap: 34px;
   align-items: start;
   margin-bottom: 44px;
+
+  p { color: var(--text-mid); font-size: 16px; margin-bottom: 14px; }
 }
 
 .section-title {
@@ -191,30 +157,20 @@ h1 {
   margin-bottom: 14px;
 }
 
-.intro p {
-  color: var(--text-mid);
-  font-size: 16px;
-  margin-bottom: 14px;
-}
-
+// ─── Highlight Box ────────────────────────────────────────────────────────────
 .highlight-box {
-  @extend %card-base;
+  background: var(--white);
+  border: 1px solid var(--border);
   border-left: 5px solid var(--saffron);
+  border-radius: var(--radius);
   padding: 24px;
   box-shadow: 0 12px 30px rgba(26, 35, 64, 0.08);
 
-  h3 {
-    color: var(--navy);
-    font-size: 20px;
-    margin-bottom: 10px;
-  }
-
-  p {
-    color: var(--text-mid);
-    margin: 0;
-  }
+  h3 { color: var(--navy); font-size: 20px; margin-bottom: 10px; }
+  p  { color: var(--text-mid); margin: 0; }
 }
 
+// ─── Points ───────────────────────────────────────────────────────────────────
 .points {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -223,21 +179,15 @@ h1 {
 }
 
 .point {
-  @extend %card-base;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
   padding: 24px;
   min-height: 190px;
   box-shadow: 0 10px 24px rgba(26, 35, 64, 0.06);
 
-  h3 {
-    color: var(--navy);
-    font-size: 19px;
-    margin-bottom: 9px;
-  }
-
-  p {
-    color: var(--text-mid);
-    font-size: 15px;
-  }
+  h3 { color: var(--navy); font-size: 19px; margin-bottom: 9px; }
+  p  { color: var(--text-mid); font-size: 15px; }
 }
 
 .point-number {
@@ -252,6 +202,7 @@ h1 {
   margin-bottom: 16px;
 }
 
+// ─── Values ───────────────────────────────────────────────────────────────────
 .values {
   background: var(--navy);
   color: var(--white);
@@ -262,14 +213,8 @@ h1 {
   gap: 28px;
   align-items: center;
 
-  h2 {
-    font-size: clamp(28px, 4vw, 40px);
-    margin-bottom: 12px;
-  }
-
-  p {
-    color: #d8def0;
-  }
+  h2 { font-size: clamp(28px, 4vw, 40px); margin-bottom: 12px; }
+  p  { color: #d8def0; }
 }
 
 .value-list {
@@ -286,6 +231,7 @@ h1 {
   }
 }
 
+// ─── Footer ───────────────────────────────────────────────────────────────────
 .footer {
   background: var(--navy);
   color: #cfd8f0;
@@ -294,6 +240,7 @@ h1 {
   font-size: 13px;
 }
 
+// ─── Responsive ───────────────────────────────────────────────────────────────
 @media (max-width: 850px) {
   .header {
     align-items: flex-start;
@@ -301,13 +248,9 @@ h1 {
   }
 
   .intro,
-  .values {
-    grid-template-columns: 1fr;
-  }
+  .values { grid-template-columns: 1fr; }
 
-  .points {
-    grid-template-columns: 1fr 1fr;
-  }
+  .points { grid-template-columns: 1fr 1fr; }
 }
 
 @media (max-width: 560px) {
@@ -319,15 +262,7 @@ h1 {
     padding-right: 18px;
   }
 
-  .hero {
-    min-height: 300px;
-  }
-
-  .points {
-    grid-template-columns: 1fr;
-  }
-
-  .values {
-    padding: 24px;
-  }
+  .hero    { min-height: 300px; }
+  .points  { grid-template-columns: 1fr; }
+  .values  { padding: 24px; }
 }
