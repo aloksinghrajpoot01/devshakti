@@ -1,3 +1,15 @@
+h1,
+h2 {
+  font-family: "Playfair Display", serif;
+  line-height: 1.15;
+}
+
+.point, .highlight-box {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
 :root {
   --saffron: #E8651A;
   --saffron-dark: #C4510F;
@@ -32,24 +44,25 @@ a {
 }
 
 .topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
   background: var(--navy);
   color: #cfd8f0;
   font-size: 12px;
   padding: 7px 24px;
-  display: flex;
-  justify-content: space-between;
-  gap: 12px;
-  flex-wrap: wrap;
 }
 
 .header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
   background: var(--saffron);
   color: var(--white);
   padding: 15px 24px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 18px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
 }
 
@@ -110,12 +123,6 @@ a {
   margin-bottom: 12px;
 }
 
-h1,
-h2 {
-  font-family: "Playfair Display", serif;
-  line-height: 1.15;
-}
-
 h1 {
   font-size: clamp(38px, 6vw, 68px);
   max-width: 760px;
@@ -153,10 +160,7 @@ h1 {
 }
 
 .highlight-box {
-  background: var(--white);
-  border: 1px solid var(--border);
   border-left: 5px solid var(--saffron);
-  border-radius: var(--radius);
   padding: 24px;
   box-shadow: 0 12px 30px rgba(26, 35, 64, 0.08);
 }
@@ -178,9 +182,6 @@ h1 {
 }
 
 .point {
-  background: var(--white);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
   padding: 24px;
   min-height: 190px;
   box-shadow: 0 10px 24px rgba(26, 35, 64, 0.06);

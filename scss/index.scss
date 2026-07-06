@@ -11,6 +11,36 @@ $border: #E5DDD5;
 $white: #fff;
 $radius: 8px;
 
+@mixin flex-layout($justify: null, $align: center, $gap: null, $wrap: false) {
+  display: flex;
+  align-items: $align;
+
+  @if $justify != null {
+    justify-content: $justify;
+  }
+
+  @if $gap != null {
+    gap: $gap;
+  }
+
+  @if $wrap {
+    flex-wrap: wrap;
+  }
+}
+
+@mixin button-reset($bg, $color, $radius) {
+  background: $bg;
+  color: $color;
+  border: none;
+  border-radius: $radius;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+%interactive-link {
+  transition: background 0.2s, color 0.2s;
+}
+
 :root {
   --saffron: #{$saffron};
   --saffron-dark: #{$saffron-dark};
@@ -63,39 +93,31 @@ button {
 }
 
 .topbar {
+  @include flex-layout(space-between, center, 6px, true);
   background: var(--navy);
   color: #cfd8f0;
   font-size: 12px;
   padding: 6px 24px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 6px;
+}
 
-  a {
-    color: #cfd8f0;
-    transition: color 0.2s;
+.topbar a {
+  @extend %interactive-link;
+  color: #cfd8f0;
+}
 
-    &:hover {
-      color: #fff;
-    }
-  }
+.topbar a:hover {
+  color: #fff;
 }
 
 .tb-l,
 .tb-r {
-  display: flex;
-  align-items: center;
-  gap: 16px;
+  @include flex-layout(null, center, 16px);
 }
 
 .header {
+  @include flex-layout(null, center, 16px);
   background: var(--saffron);
   padding: 12px 24px;
-  display: flex;
-  align-items: center;
-  gap: 16px;
   position: sticky;
   top: 0;
   z-index: 200;
@@ -123,8 +145,8 @@ button {
 }
 
 .search-wrap {
+  @include flex-layout();
   flex: 1;
-  display: flex;
   max-width: 580px;
 
   input {
@@ -134,30 +156,23 @@ button {
     border-radius: var(--radius) 0 0 var(--radius);
     font-size: 14px;
     outline: none;
-    font-family: 'DM Sans', sans-serif;
+    font-family: inherit;
   }
 }
 
 .search-btn {
-  background: var(--navy);
-  color: #fff;
-  border: none;
+  @include button-reset(var(--navy), #fff, 0 var(--radius) var(--radius) 0);
   padding: 10px 18px;
-  border-radius: 0 var(--radius) var(--radius) 0;
-  cursor: pointer;
   font-size: 18px;
-  transition: background 0.2s;
+}
 
-  &:hover {
-    background: #111e38;
-  }
+.search-btn:hover {
+  background: #111e38;
 }
 
 .h-acts {
   margin-left: auto;
-  display: flex;
-  align-items: center;
-  gap: 18px;
+  @include flex-layout(null, center, 18px);
 }
 
 .h-act {
@@ -190,8 +205,8 @@ button {
 }
 
 .navbar {
+  @include flex-layout(null, center, null);
   background: var(--navy);
-  display: flex;
   align-items: center;
   padding: 0 24px;
   overflow-x: auto;
@@ -200,12 +215,12 @@ button {
   z-index: 190;
 
   a {
+    @extend %interactive-link;
     color: #cfd8f0;
     font-size: 13px;
     padding: 12px 14px;
     white-space: nowrap;
     display: block;
-    transition: background 0.2s, color 0.2s;
     font-weight: 500;
 
     &:hover,
@@ -264,6 +279,7 @@ button {
   border-bottom: 1px solid var(--border);
 
   a {
+    @extend %interactive-link;
     color: var(--saffron);
     cursor: pointer;
 
@@ -382,20 +398,14 @@ button {
 }
 
 .hero-btns {
-  display: flex;
-  gap: 14px;
-  flex-wrap: wrap;
+  @include flex-layout(null, center, 14px, true);
 }
 
 .btn-primary {
-  background: var(--saffron);
-  color: #fff;
+  @include button-reset(var(--saffron), #fff, var(--radius));
   padding: 12px 28px;
-  border-radius: var(--radius);
   font-weight: 600;
   font-size: 14px;
-  border: none;
-  cursor: pointer;
   transition: background 0.2s, transform 0.15s;
 
   &:hover {
