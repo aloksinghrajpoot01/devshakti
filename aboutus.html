@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us - Devshakti Vastralaya</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=DM+Sans:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet" />
+  <style>
+    :root {
+      --saffron: #E8651A;
+      --saffron-dark: #C4510F;
+      --saffron-light: #FDF0E8;
+      --navy: #1A2340;
+      --navy-mid: #2C3A5C;
+      --gold: #D4A017;
+      --cream: #FAF6F0;
+      --text: #1C1C1C;
+      --text-mid: #555;
+      --border: #E5DDD5;
+      --white: #fff;
+      --radius: 8px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      color: var(--text);
+      background: var(--cream);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .topbar {
+      background: var(--navy);
+      color: #cfd8f0;
+      font-size: 12px;
+      padding: 7px 24px;
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .header {
+      background: var(--saffron);
+      color: var(--white);
+      padding: 15px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 18px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+    }
+
+    .logo-text {
+      font-family: 'Playfair Display', serif;
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 1.1;
+    }
+
+    .logo-sub {
+      font-size: 10px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.82);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .nav a {
+      color: var(--white);
+      font-size: 14px;
+      font-weight: 600;
+      padding: 8px 11px;
+      border-radius: var(--radius);
+      transition: background .2s;
+    }
+
+    .nav a:hover,
+    .nav a.active {
+      background: rgba(255, 255, 255, 0.18);
+    }
+
+    .hero {
+      background:
+        linear-gradient(120deg, rgba(26, 35, 64, 0.9), rgba(196, 81, 15, 0.72)),
+        url("https://images.unsplash.com/photo-1603252109303-2751441dd157?auto=format&fit=crop&w=1600&q=80") center/cover;
+      color: var(--white);
+      min-height: 340px;
+      display: grid;
+      align-items: center;
+      padding: 64px 24px;
+    }
+
+    .hero-inner,
+    .content {
+      width: min(1100px, 100%);
+      margin: 0 auto;
+    }
+
+    .eyebrow {
+      color: #FFD166;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    h1,
+    h2 {
+      font-family: 'Playfair Display', serif;
+      line-height: 1.15;
+    }
+
+    h1 {
+      font-size: clamp(38px, 6vw, 68px);
+      max-width: 760px;
+      margin-bottom: 16px;
+    }
+
+    .hero p {
+      max-width: 660px;
+      font-size: 18px;
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    .content {
+      padding: 56px 24px 70px;
+    }
+
+    .intro {
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: 34px;
+      align-items: start;
+      margin-bottom: 44px;
+    }
+
+    .section-title {
+      color: var(--navy);
+      font-size: clamp(28px, 4vw, 42px);
+      margin-bottom: 14px;
+    }
+
+    .intro p {
+      color: var(--text-mid);
+      font-size: 16px;
+      margin-bottom: 14px;
+    }
+
+    .highlight-box {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-left: 5px solid var(--saffron);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: 0 12px 30px rgba(26, 35, 64, 0.08);
+    }
+
+    .highlight-box h3 {
+      color: var(--navy);
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    .highlight-box p {
+      color: var(--text-mid);
+      margin: 0;
+    }
+
+    .points {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      margin-bottom: 46px;
+    }
+
+    .point {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      min-height: 190px;
+      box-shadow: 0 10px 24px rgba(26, 35, 64, 0.06);
+    }
+
+    .point-number {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: var(--saffron-light);
+      color: var(--saffron-dark);
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .point h3 {
+      color: var(--navy);
+      font-size: 19px;
+      margin-bottom: 9px;
+    }
+
+    .point p {
+      color: var(--text-mid);
+      font-size: 15px;
+    }
+
+    .values {
+      background: var(--navy);
+      color: var(--white);
+      border-radius: var(--radius);
+      padding: 34px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .values h2 {
+      font-size: clamp(28px, 4vw, 40px);
+      margin-bottom: 12px;
+    }
+
+    .values p {
+      color: #d8def0;
+    }
+
+    .value-list {
+      list-style: none;
+      display: grid;
+      gap: 12px;
+    }
+
+    .value-list li {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: var(--radius);
+      padding: 13px 15px;
+      font-weight: 600;
+    }
+
+    .footer {
+      background: var(--navy);
+      color: #cfd8f0;
+      text-align: center;
+      padding: 22px 24px;
+      font-size: 13px;
+    }
+
+    @media (max-width: 850px) {
+      .header {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .intro,
+      .values {
+        grid-template-columns: 1fr;
+      }
+
+      .points {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .topbar,
+      .header,
+      .hero,
+      .content {
+        padding-left: 18px;
+        padding-right: 18px;
+      }
+
+      .hero {
+        min-height: 300px;
+      }
+
+      .points {
+        grid-template-columns: 1fr;
+      }
+
+      .values {
+        padding: 24px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="topbar">
+    <span>Welcome to Devshakti Vastralaya</span>
+    <span>Traditional wear, daily wear and festive collections</span>
+  </div>
+
+  <header class="header">
+    <a href="index.html" aria-label="Go to homepage">
+      <div class="logo-text">Devshakti Vastralaya</div>
+      <div class="logo-sub">Fashion for Every Generation</div>
+    </a>
+    <nav class="nav" aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a class="active" href="aboutus.html">About Us</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-inner">
+        <div class="eyebrow">About Our Store</div>
+        <h1>Clothing chosen with trust, comfort and tradition.</h1>
+        <p>
+          Devshakti Vastralaya brings together stylish, reliable and budget-friendly clothing for every age group,
+          from everyday essentials to special occasion outfits.
+        </p>
+      </div>
+    </section>
+
+    <section class="content">
+      <div class="intro">
+        <div>
+          <h2 class="section-title">Who We Are</h2>
+          <p>
+            Devshakti Vastralaya is a family-focused clothing destination where customers can find garments for men,
+            women and children under one roof. We believe shopping should feel simple, welcoming and dependable.
+          </p>
+          <p>
+            Our collection is selected to match Indian taste, seasonal needs and modern fashion choices. Whether you
+            are buying for a festival, wedding, office, school, home or daily use, we aim to provide quality products at
+            fair prices.
+          </p>
+        </div>
+
+        <aside class="highlight-box">
+          <h3>Our Promise</h3>
+          <p>
+            We focus on good fabric, neat designs, honest pricing and friendly service so every customer leaves with a
+            product they feel happy to wear.
+          </p>
+        </aside>
+      </div>
+
+      <div class="points" aria-label="About Devshakti Vastralaya highlights">
+        <article class="point">
+          <div class="point-number">1</div>
+          <h3>Wide Clothing Range</h3>
+          <p>
+            Sarees, suits, kurtis, shirts, pants, kidswear, casual wear and festive outfits are available for different
+            choices and occasions.
+          </p>
+        </article>
+
+        <article class="point">
+          <div class="point-number">2</div>
+          <h3>Quality and Comfort</h3>
+          <p>
+            We give attention to fabric feel, fitting, stitching and durability so customers can enjoy comfort in daily
+            and special wear.
+          </p>
+        </article>
+
+        <article class="point">
+          <div class="point-number">3</div>
+          <h3>Affordable Prices</h3>
+          <p>
+            Our goal is to offer fashionable and traditional clothing at prices suitable for families and regular
+            shoppers.
+          </p>
+        </article>
+
+        <article class="point">
+          <div class="point-number">4</div>
+          <h3>Traditional and Modern Styles</h3>
+          <p>
+            From classic Indian wear to updated daily fashion, our collection balances culture, trend and personal
+            comfort.
+          </p>
+        </article>
+
+        <article class="point">
+          <div class="point-number">5</div>
+          <h3>Customer-Friendly Service</h3>
+          <p>
+            We help customers choose the right clothing for size, occasion, color preference and budget with polite
+            guidance.
+          </p>
+        </article>
+
+        <article class="point">
+          <div class="point-number">6</div>
+          <h3>Fresh Collections</h3>
+          <p>
+            We keep adding new designs for festivals, weddings, seasons and everyday fashion so customers can find
+            something new often.
+          </p>
+        </article>
+      </div>
+
+      <section class="values" aria-label="Devshakti Vastralaya values">
+        <div>
+          <h2>What Makes Us Different</h2>
+          <p>
+            Devshakti Vastralaya is built on the idea that good clothing should be easy to choose, pleasant to wear and
+            worth the money spent.
+          </p>
+        </div>
+        <ul class="value-list">
+          <li>Trusted shopping experience</li>
+          <li>Helpful product selection</li>
+          <li>Styles for all generations</li>
+          <li>Respect for tradition and trend</li>
+        </ul>
+      </section>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Devshakti Vastralaya - Fashion for Every Generation</p>
+  </footer>
+</body>
+
+</html>
