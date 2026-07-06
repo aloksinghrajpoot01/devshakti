@@ -73,7 +73,6 @@ a {
   gap: 8px;
   flex-wrap: wrap;
 }
-
 .nav a {
   color: var(--white);
   font-size: 14px;
@@ -82,9 +81,7 @@ a {
   border-radius: var(--radius);
   transition: background 0.2s;
 }
-
-.nav a:hover,
-.nav a.active {
+.nav a:hover, .nav a.active {
   background: rgba(255, 255, 255, 0.18);
 }
 
@@ -95,6 +92,11 @@ a {
   display: grid;
   align-items: center;
   padding: 64px 24px;
+}
+.hero p {
+  max-width: 660px;
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.9);
 }
 
 .hero-inner,
@@ -124,12 +126,6 @@ h1 {
   margin-bottom: 16px;
 }
 
-.hero p {
-  max-width: 660px;
-  font-size: 18px;
-  color: rgba(255, 255, 255, 0.9);
-}
-
 .content {
   padding: 56px 24px 70px;
 }
@@ -141,16 +137,15 @@ h1 {
   align-items: start;
   margin-bottom: 44px;
 }
+.intro p {
+  color: var(--text-mid);
+  font-size: 16px;
+  margin-bottom: 14px;
+}
 
 .section-title {
   color: var(--navy);
   font-size: clamp(28px, 4vw, 42px);
-  margin-bottom: 14px;
-}
-
-.intro p {
-  color: var(--text-mid);
-  font-size: 16px;
   margin-bottom: 14px;
 }
 
@@ -162,13 +157,11 @@ h1 {
   padding: 24px;
   box-shadow: 0 12px 30px rgba(26, 35, 64, 0.08);
 }
-
 .highlight-box h3 {
   color: var(--navy);
   font-size: 20px;
   margin-bottom: 10px;
 }
-
 .highlight-box p {
   color: var(--text-mid);
   margin: 0;
@@ -189,6 +182,15 @@ h1 {
   min-height: 190px;
   box-shadow: 0 10px 24px rgba(26, 35, 64, 0.06);
 }
+.point h3 {
+  color: var(--navy);
+  font-size: 19px;
+  margin-bottom: 9px;
+}
+.point p {
+  color: var(--text-mid);
+  font-size: 15px;
+}
 
 .point-number {
   width: 38px;
@@ -202,17 +204,6 @@ h1 {
   margin-bottom: 16px;
 }
 
-.point h3 {
-  color: var(--navy);
-  font-size: 19px;
-  margin-bottom: 9px;
-}
-
-.point p {
-  color: var(--text-mid);
-  font-size: 15px;
-}
-
 .values {
   background: var(--navy);
   color: var(--white);
@@ -223,12 +214,10 @@ h1 {
   gap: 28px;
   align-items: center;
 }
-
 .values h2 {
   font-size: clamp(28px, 4vw, 40px);
   margin-bottom: 12px;
 }
-
 .values p {
   color: #d8def0;
 }
@@ -238,7 +227,6 @@ h1 {
   display: grid;
   gap: 12px;
 }
-
 .value-list li {
   background: rgba(255, 255, 255, 0.08);
   border: 1px solid rgba(255, 255, 255, 0.12);

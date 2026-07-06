@@ -307,7 +307,9 @@ button { font-family: $font-body; }
 
 // ─── Hero ─────────────────────────────────────────────────────────────────────
 .hero {
-  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 55%, #3a2010 100%);
+  background:
+    linear-gradient(135deg, rgba(26, 35, 64, 0.86) 0%, rgba(44, 58, 92, 0.74) 55%, rgba(58, 32, 16, 0.76) 100%),
+    url("../assets/images/home-hero.jpg") center/cover;
   min-height: 400px;
   display: flex;
   align-items: center;
@@ -453,6 +455,13 @@ button { font-family: $font-body; }
   background-size: cover;
   background-position: center;
   transition: transform .35s;
+}
+
+.cat-card {
+  .bg-1  { background-image: url("../assets/images/categories/men.jpg"); }
+  .bg-2  { background-image: url("../assets/images/categories/women.jpg"); }
+  .bg-3  { background-image: url("../assets/images/categories/kids.jpg"); }
+  .bg-11 { background-image: url("../assets/images/categories/sale.jpg"); }
 }
 
 .cat-overlay {
