@@ -309,7 +309,7 @@ button { font-family: $font-body; }
 .hero {
   background:
     linear-gradient(135deg, rgba(26, 35, 64, 0.86) 0%, rgba(44, 58, 92, 0.74) 55%, rgba(58, 32, 16, 0.76) 100%),
-    url("../assets/images/home-hero.jpg") center/cover;
+    url("../assets/images/banner/banner.webp") center/cover;
   min-height: 400px;
   display: flex;
   align-items: center;
@@ -458,10 +458,10 @@ button { font-family: $font-body; }
 }
 
 .cat-card {
-  .bg-1  { background-image: url("../assets/images/categories/men.jpg"); }
-  .bg-2  { background-image: url("../assets/images/categories/women.jpg"); }
-  .bg-3  { background-image: url("../assets/images/categories/kids.jpg"); }
-  .bg-11 { background-image: url("../assets/images/categories/sale.jpg"); }
+  .bg-1  { background-image: url("../assets/images/New folder/EMpABDSg_f5ddbb13f12b4b8c9b08e13c53200930.webp"); }
+  .bg-2  { background-image: url("../assets/images/womans/womans-kurta.webp"); }
+  .bg-3  { background-image: url("../assets/images/kids/kids.webp"); }
+  .bg-11 { background-image: url("../assets/images/womans/lahnga.webp"); }
 }
 
 .cat-overlay {
